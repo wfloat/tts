@@ -1,33 +1,33 @@
 {
-    "name": "tts",
-  
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "tts:latest",
-  
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    // "features": {},
-  
-    "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": [
-          "ms-python.python",
-          "ms-python.vscode-pylance"
-        ]
-      }
-    },
-  
-    "forwardPorts": [5678],
-    // ,
-  
-    // "portsAttributes": {
-    //   "9000": {
-    //     "label": "Hello Remote World",
-    //     "onAutoForward": "notify"
-    //   }
-    // },
-  
-    // "postCreateCommand": "yarn install"
-  
-    "remoteUser": "root"
-  }
+  "name": "TTS Container",
+  "build": {
+    // Sets the run context to one level up instead of the .devcontainer folder.
+    "context": "..",
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    "dockerfile": "../Dockerfile"
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+    }
+  },
+
+  "forwardPorts": [5678],
+  // ,
+
+  // "portsAttributes": {
+  //   "9000": {
+  //     "label": "Hello Remote World",
+  //     "onAutoForward": "notify"
+  //   }
+  // },
+
+  // "postCreateCommand": "yarn install"
+
+  "remoteUser": "root"
+}
