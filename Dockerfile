@@ -1,5 +1,7 @@
 FROM python:3.10.12-bullseye
 
+RUN useradd -ms /bin/bash devcontainer
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
@@ -18,4 +20,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD python main.py
+CMD python src/main.py

@@ -6,6 +6,7 @@
     // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
     "dockerfile": "../Dockerfile"
   },
+  "remoteUser": "devcontainer",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -13,11 +14,15 @@
   "customizations": {
     "vscode": {
       "settings": {},
-      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.autopep8"
+      ]
     }
   },
 
-  "forwardPorts": [5678],
+  "forwardPorts": [5678]
   // ,
 
   // "portsAttributes": {
@@ -28,6 +33,4 @@
   // },
 
   // "postCreateCommand": "yarn install"
-
-  "remoteUser": "root"
 }

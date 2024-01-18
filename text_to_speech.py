@@ -6,11 +6,11 @@ from . import ssml
 
 load_dotenv()
 
-SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY")
-SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION")
+AZURE_SPEECH_KEY = os.getenv("AZURE_AZURE_SPEECH_KEY")
+AZURE_SPEECH_REGION = os.getenv("AZURE_AZURE_SPEECH_REGION")
 
 voice_name = "en-US-DavisNeural"
-speech_config = speechsdk.SpeechConfig(subscription=SPEECH_KEY, region=SPEECH_REGION)
+speech_config = speechsdk.SpeechConfig(subscription=AZURE_SPEECH_KEY, region=AZURE_SPEECH_REGION)
 speech_config.speech_synthesis_voice_name=voice_name
 # speech_config.set_property(speechsdk.PropertyId.Speech_LogFilename, "azure_logfile")
 
