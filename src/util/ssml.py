@@ -24,11 +24,12 @@ def build_ssml(message, voice, style):
     return f'''
     <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
         <voice name="{voice}" styledegree="2">
+            <break  time="200"/>
             <mstts:silence  type="Sentenceboundary" value="35ms"/>
             <mstts:express-as style="{style}">
                 {message}
             </mstts:express-as>
-             <break  time="500"/>
+             <break  time="50"/>
         </voice>
     </speak>
     '''
