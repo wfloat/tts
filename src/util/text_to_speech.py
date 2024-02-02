@@ -1,4 +1,5 @@
 import azure.cognitiveservices.speech as speechsdk
+from azure.cognitiveservices.speech.enums import SpeechSynthesisOutputFormat
 from dotenv import load_dotenv
 import os
 import tempfile
@@ -11,11 +12,12 @@ from dataclasses import dataclass
 load_dotenv()
 AZURE_SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY")
 AZURE_SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION")
+AZURE_SPEECH_AUDIO_FORMAT=SpeechSynthesisOutputFormat.Riff48Khz16BitMonoPcm
 
 SPEECH_STYLE = "default"
 
 
-voice_option = Literal["Jenny", "Guy", "Aria", "Davis", "Amber", "Ana", "Andrew", "Ashley", "Brandon", "Brian", "Christopher",
+voice_option = Literal["Ava", "Jenny", "Guy", "Aria", "Davis", "Amber", "Ana", "Andrew", "Ashley", "Brandon", "Brian", "Christopher",
                        "Cora", "Elizabeth", "Emma", "Eric", "Jacob", "Jane", "Jason", "Michelle", "Monica", "Nancy", "Roger", "Sara", "Steffan", "Tony"]
 
 
@@ -33,6 +35,7 @@ def synthesize_speech(message: str, name: str) -> str:
     speech_config = speechsdk.SpeechConfig(
         subscription=AZURE_SPEECH_KEY, region=AZURE_SPEECH_REGION)
     speech_config.speech_synthesis_voice = voice
+    speech_config.set_speech_synthesis_output_format(format_id=AZURE_SPEECH_AUDIO_FORMAT)
     with tempfile.NamedTemporaryFile(delete=False) as temp_file:
         temp_file_path = temp_file.name
         audio_config = speechsdk.audio.AudioOutputConfig(
